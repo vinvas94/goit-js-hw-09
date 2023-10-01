@@ -11,7 +11,7 @@ formEl.addEventListener('submit', onFormSubmit);
 function onFormSubmit(ev) {
   ev.preventDefault();
   let newDelay = Number(formEl.delay.value);
-  for (let i = 1; i < formEl.amount.value; i += 1) {
+  for (let i = 1; i <= formEl.amount.value; i += 1) {
     createPromise(i, newDelay)
       .then(({ position, delay }) => {
         Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
@@ -77,7 +77,7 @@ function createPromise(position, delay) {
 
 //   let promiseChain = Promise.resolve();
 
-//   for (let i = 1; i < amount; i += 1) {
+//   for (let i = 1; i <= amount; i += 1) {
 //     promiseChain = promiseChain;
 //     createPromise(i, newDelay)
 //       .then(({ position, delay }) => {
